@@ -1,0 +1,62 @@
+.burger-nav {
+    position: relative;
+    width: 34px;
+    height: 20px;
+    background: none;
+    border: none;
+    display: none;
+    cursor: pointer;
+
+    @include breakpoint('2xl') {
+        display: block;
+    }
+
+
+
+    &__item {
+        height: 2px;
+        background: #000;
+        position: absolute;
+        width: 34px;
+        left: 0;
+        top: 50%;
+        transition: all 0.4s ease;
+    }
+
+    &__item:first-child {
+        top: 0;
+    }
+
+    &__item:last-child {
+        top: 100%;
+    }
+
+    &.is-active {
+        position: absolute;
+        left: 250px;
+        top: 10px;
+        cursor: pointer;
+
+        .burger-nav__item {
+            opacity: 0;
+            z-index: 1000;
+        }
+
+        .burger-nav__item:first-child {
+            opacity: 1;
+            transform: rotate(35deg) translate(6px, 8px);
+            z-index: 1000;
+        }
+
+        .burger-nav__item:last-child {
+            z-index: 1000;
+            opacity: 1;
+            transform: rotate(-35deg) translate(6px, -8px);
+        }
+
+    }
+}
+
+.is-ul {
+    margin: 30px;
+}
